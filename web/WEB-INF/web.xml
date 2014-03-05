@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <!-- Login filter -->
+    <filter>
+        <filter-name>FiltroLogin</filter-name>
+        <filter-class>util.FiltroLogin</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FiltroLogin</filter-name>
+        <url-pattern>/seguro/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>login.xhtml</welcome-file>
+    </welcome-file-list>
+    <!-- ############################################# -->
+    <!-- # File upload                                      # -->
+    <!-- ############################################# -->
+    <filter>
+        <filter-name>PrimeFile</filter-name>
+        <filter-class>
+            org.primefaces.webapp.filter.FileUploadFilter
+        </filter-class>
+        <init-param>
+            <param-name>thresholdSize</param-name>
+            <param-value>51200</param-value>
+        </init-param>
+        <init-param>
+            <param-name>uploadDirectory</param-name>
+            <param-value>WEB-INF/files/</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>PrimeFile</filter-name>
+        <servlet-name>Faces Servlet</servlet-name>
+    </filter-mapping>
+</web-app>

@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Cadastro de novos Filmes</title>
+    </h:head>
+    <h:body>
+
+        <h:form enctype="multipart/form-data">
+            <p:growl id="growlfilm" showDetail="true" sticky="true" />  
+            <p:panelGrid columns="2" id="panelfilmes" >
+                <f:facet name="header">
+                    Cadastro de Novos Filmes
+
+                </f:facet>
+                <p:outputLabel value="Titulo:" />
+                <p:inputText  required="true" id="Titulo" value="#{filmeMB.filme.titulo}" />
+                <p:outputLabel value="Descrição:" />
+                <h:inputTextarea required="true"  id="Descricao" rows="10" cols="30"  value="#{filmeMB.filme.descricao}"/>
+                <p:outputLabel value="Genero:" />
+                <p:inputText required="true"  id="Genero" value="#{filmeMB.filme.genero}"/>
+                <p:outputLabel value="Duração:"/>
+                <p:inputText required="true" id="Duracao" value="#{filmeMB.filme.duracao}"/>
+                <p:outputLabel value="Autor:"/>
+                <p:inputText  required="true" id="Autor" value="#{filmeMB.filme.autor}" />
+                <p:outputLabel value="Disponibilidade: " />
+                <p:inputText  required="true" id="Disponibilidade"  value="#{filmeMB.filme.disponibilidade}"/>
+
+
+                <f:facet name="footer" >
+
+
+                    <p:fileUpload required="true" mode="advanced" dragDropSupport="false" auto="true" fileUploadListener="#{filmeMB.uploadImage}" 
+                                  update="growlfilm" sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />  
+
+
+                    <p:commandButton value="Salvar"  action="#{filmeMB.salvar}" update="growlfilm" />
+
+
+
+
+
+
+                </f:facet>
+
+            </p:panelGrid>
+
+
+        </h:form>
+
+
+
+    </h:body>
+</html>
+

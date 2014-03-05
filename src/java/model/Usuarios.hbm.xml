@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05/02/2014 02:37:50 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="model.Usuarios" table="usuarios" catalog="loca">
+        <id name="idusuarios" type="java.lang.Integer">
+            <column name="idusuarios" />
+            <generator class="identity" />
+        </id>
+        <property name="nome" type="string">
+            <column name="nome" length="65535" not-null="true" />
+        </property>
+        <property name="sobrenome" type="string">
+            <column name="sobrenome" length="65535" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="65535" not-null="true" />
+        </property>
+        <property name="senha" type="string">
+            <column name="senha" length="65535" not-null="true" />
+        </property>
+        <property name="confSenha" type="string">
+            <column name="confSenha" length="65535" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

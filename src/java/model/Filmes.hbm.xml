@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05/02/2014 02:37:50 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="model.Filmes" table="filmes" catalog="loca">
+        <id name="idfilmes" type="java.lang.Integer">
+            <column name="idfilmes" />
+            <generator class="identity" />
+        </id>
+        <property name="titulo" type="string">
+            <column name="titulo" length="65535" not-null="true" />
+        </property>
+        <property name="descricao" type="string">
+            <column name="descricao" length="65535" not-null="true" />
+        </property>
+        <property name="genero" type="string">
+            <column name="genero" length="65535" not-null="true" />
+        </property>
+        <property name="autor" type="string">
+            <column name="autor" length="65535" not-null="true" />
+        </property>
+        <property name="disponibilidade" type="string">
+            <column name="disponibilidade" length="65535" not-null="true" />
+        </property>
+        <property name="imagemurl" type="string">
+            <column name="imagemurl" length="65535" not-null="true" />
+        </property>
+        <property name="duracao" type="int">
+            <column name="duracao" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Loca Easy Cadastro </title>
+    </h:head>
+    <h:body style="background-color: #ccccff">
+       <h:form id="cad">
+            
+           
+           <p:growl id="growlcad" showDetail="true" sticky="true" />  
+           <p:panelGrid columns="2" id="grid">
+                    
+                    <f:facet name="header" >
+                        Cadastro de novos usuários
+                    </f:facet>
+                    
+            <p:outputLabel value="Nome:"  />
+            <p:inputText id="nome" required="true" value="#{loginMB.usuario.nome}"/>
+            
+            <p:outputLabel value="Sobrenome:" />
+            <p:inputText id="sobrenome" required="true" value="#{loginMB.usuario.sobrenome}"/>
+         
+            
+            <p:outputLabel value="Email:" />
+            <p:inputText id="email" required="true" value="#{loginMB.usuario.email}" />
+            
+            <p:outputLabel value="Senha:" />
+            <p:password id="newSenha" required="true" value="#{loginMB.usuario.senha}" />
+            
+            <p:outputLabel value="Confirmar Senha:" />
+            <p:password id="newSenha2" required="true" value="#{loginMB.usuario.confSenha}"/>
+          
+            <f:facet name="footer"  >
+                <p:commandButton value="Cadastrar" action="#{loginMB.cadastrar}" update="growlcad" />
+                    </f:facet>
+            
+                </p:panelGrid>
+            
+                </h:form>
+        
+    </h:body>
+</html>
+
