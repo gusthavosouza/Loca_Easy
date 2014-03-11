@@ -14,10 +14,16 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet>
+        <servlet-name>ImagemServlet</servlet-name>
+       
+        <url-pattern>/seguro/imagens/*</url-pattern>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
+   
     <welcome-file-list>
         <welcome-file>login.xhtml</welcome-file>
     </welcome-file-list>
@@ -35,7 +41,7 @@
         </init-param>
         <init-param>
             <param-name>uploadDirectory</param-name>
-            <param-value>WEB-INF/files/</param-value>
+            <param-value>seguro/imagens</param-value>
         </init-param>
     </filter>
     <filter-mapping>

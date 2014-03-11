@@ -72,7 +72,7 @@ public class FilmeDaoImp implements FilmeDao {
     }
 
     public List showAllImage() {
-        List imagensList = null;
+        List imagensList;
         Session session = HibernateUtil.getSessionFactory().openSession();
         org.hibernate.Transaction tx = session.beginTransaction();
         Query q = session.createSQLQuery("select imagemurl from filmes");

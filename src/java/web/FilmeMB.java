@@ -6,28 +6,17 @@
 package web;
 
 import dao.FilmeDaoImp;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.Arrays;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.imageio.ImageIO;
-import javax.servlet.http.HttpServletResponse;
 import model.Filmes;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.event.SelectEvent;
@@ -170,14 +159,14 @@ public class FilmeMB {
         ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
 
         try {
-            File targetFolder = new File("C:\\Users\\Gusthavo\\Documents\\NetBeansProjects\\Loca\\web\\WEB-INF\\files\\");
+            File targetFolder = new File("C:\\Users\\Gusthavo\\Documents\\NetBeansProjects\\Loca\\web\\seguro\\imagens\\");
             InputStream inputStream = uploadEvent.getFile().getInputstream();
             OutputStream out = new FileOutputStream(new File(targetFolder,
                     uploadEvent.getFile().getFileName()));
 
             pastaDoUpload = String.valueOf(targetFolder);
             nomeArquivo = String.valueOf(uploadEvent.getFile().getFileName());
-            imagemUrl = pastaDoUpload + "\\" + nomeArquivo;
+            imagemUrl = "imagens" + "\\" + nomeArquivo;
             System.out.println(imagemUrl);
             int read = 0;
             byte[] bytes = new byte[1024];

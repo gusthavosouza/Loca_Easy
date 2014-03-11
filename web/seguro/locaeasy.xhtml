@@ -8,77 +8,85 @@
         <title>Loca Easy</title> 
     </h:head>
     <h:body>
+
         <p:layout fullPage="true">
             <p:layoutUnit position="center">
-        <h:form id="form">
-            <p:growl id="growll" showDetail="true" sticky="true" />  
-            <p:dataTable id="filmesdata" var="film" value="#{filmeMB.modelList}" paginator="true" paginatorPosition="bottom" rowKey="#{film}" selection="#{filmeMB.filme}" selectionMode="single"> 
-                <f:facet name="header">
-                    Gerenciador de Filmes
-                    
-                </f:facet>
-                <p:column headerText="Imagem">
-                    <p:graphicImage value="#{imagemMB.gra}}" >
-                    </p:graphicImage>
-                    
-                        
+                <h:form id="form">
+                    <p:growl id="growll" showDetail="true" sticky="true" />  
+                    <p:dataTable id="filmesdata" var="film" value="#{filmeMB.modelList}" paginator="true" paginatorPosition="bottom" rowKey="#{film}" selection="#{filmeMB.filme}" selectionMode="single"> 
+                        <f:facet name="header">
+                            Gerenciador de Filmes
 
-                 </p:column>
-                <p:column headerText="Titulo" >
-                   #{film.titulo}
-                </p:column>   
-                
-                <p:column headerText="Descrição">
-                    #{film.descricao}
-                </p:column>
-                <p:column headerText="Genero">
-                    #{film.genero}
-                </p:column>
-                
-                <p:column headerText="Duração">
-                  #{film.duracao}
-                </p:column>
-                <p:column headerText="Autor">
-                    #{film.autor}
-                </p:column>
-                <p:column headerText="Disponibilidade">
-                      #{film.disponibilidade}
-                
-                </p:column>
-                  <p:column >
-                      <p:commandLink value="Alugar" action="#{filmeMB.alugar()}" update=":form:filmesdata" disabled="#{filmeMB.disabledLink(film.disponibilidade)}"/>
-                </p:column>
-                  <p:column >
-                      <p:commandLink value="Devolver" action="#{filmeMB.devolverFilme()}" update=":form:filmesdata" disabled="#{filmeMB.enabledLink(film.disponibilidade)}"/>
-                </p:column>
-            </p:dataTable>
-        </h:form>
-                </p:layoutUnit>
-            
+                        </f:facet>
+                        <p:column headerText="Imagem">
+
+                            <p:graphicImage value="#{film.imagemurl}" width="100" height="100" >
+                            </p:graphicImage>
+
+
+
+
+
+
+
+                        </p:column>
+                        <p:column headerText="Titulo" >
+                            #{film.titulo}
+
+                        </p:column>   
+
+                        <p:column headerText="Descrição">
+                            #{film.descricao}
+                        </p:column>
+                        <p:column headerText="Genero">
+                            #{film.genero}
+                        </p:column>
+
+                        <p:column headerText="Duração">
+                            #{film.duracao}
+                        </p:column>
+                        <p:column headerText="Autor">
+                            #{film.autor}
+                        </p:column>
+                        <p:column headerText="Disponibilidade">
+                            #{film.disponibilidade}
+
+                        </p:column>
+                        <p:column >
+                            <p:commandLink value="Alugar" action="#{filmeMB.alugar()}" update=":form:filmesdata" disabled="#{filmeMB.disabledLink(film.disponibilidade)}"/>
+                        </p:column>
+                        <p:column >
+                            <p:commandLink value="Devolver" action="#{filmeMB.devolverFilme()}" update=":form:filmesdata" disabled="#{filmeMB.enabledLink(film.disponibilidade)}"/>
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </p:layoutUnit>
+
             <p:layoutUnit position="west" size="180" header="Informações Pessoais" >
                 <h:form id="dados" >
                     <p:panelGrid columns="1"  >
-                    <h:outputText value="Seja Bem vindo! #{loginMB.usuario.nome}"/>
-                    
-                    <p:commandButton  value="Logout" action="#{loginMB.logout()}" />
-                   
-                <h:commandLink value="Filmes Alugados" />
-                
-                <h:commandLink value="Dados Cadastrais" />
-                
-                <f:facet name="footer" >
-                    <p:commandButton value="Cadastrar Novos Filmes"  action="#{navegarBean.returnCadastroFilme()}" />
-                </f:facet>
-                </p:panelGrid>
+                        <h:outputText value="Seja Bem vindo! #{loginMB.usuario.nome}"/>
+
+                        <p:commandButton  value="Logout" action="#{loginMB.logout()}" />
+
+                        <h:commandLink value="Filmes Alugados" />
+
+                        <h:commandLink value="Dados Cadastrais" />
+
+                        <f:facet name="footer" >
+                            <p:commandButton value="Cadastrar Novos Filmes"  action="#{navegarBean.returnCadastroFilme()}" />
+                        </f:facet>
+                    </p:panelGrid>
                 </h:form>
-              <f:facet name="footer" >
+                <f:facet name="footer" >
                     Cadastrar Novos Filmes
                 </f:facet>
             </p:layoutUnit>
-             
-            
+
+
         </p:layout>
-         
+
     </h:body>
+
 </html>
 
